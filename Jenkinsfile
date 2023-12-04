@@ -9,9 +9,7 @@ pipeline {
         IMAGE_VERSION = "latest"
     }
 
-    tools {
-        maven "Maven-3.9.5"
-    }
+    
 
     stages {
         stage("Initialize") {
