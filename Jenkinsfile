@@ -54,15 +54,14 @@ pipeline {
                         }
                     }
                 }
-
-                stage("SonarQube Analysis") {
+ stage("SonarQube Analysis") {
                     steps {
-                        script {
-                            gv.sonarScan(sonarServer: 'sonar_6',
-                        projectKey: 'Projet-Devops',
-                        projectName:'Projet-Devops'
-                                        )
-                        }
+                         withSonarQubeEnv('SonarQube') {
+                        sh "mvn verify sonar:sonar -Dsonar.projectKey=Projet-Devops -Dsonar.projectName=Projet-Devops -Dsonar.host.url=http://192.168.182.135:9000"
+                }
+                            
+                
+                        
                     }
                 }
 
