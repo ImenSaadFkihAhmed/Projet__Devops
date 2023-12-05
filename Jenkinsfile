@@ -58,7 +58,10 @@ pipeline {
                 stage("SonarQube Analysis") {
                     steps {
                         script {
-                            gv.sonarScan()
+                            gv.sonarScan(sonarServer: 'sonar_6',
+                        projectKey: 'Projet-Devops',
+                        projectName:'Projet-Devops'
+                                        )
                         }
                     }
                 }
